@@ -247,6 +247,9 @@ install_WindowsTerminal_cb.grid(row=19,column=2,pady=3,sticky=W)
 def updateAllApps():
     subprocess.call([r'batch\\updateAllApps.bat'])
 
+def runtitusUtility():
+    subprocess.call([r'batch\\titusUtility.bat'])
+
 #Options Section
 def Option_section():
     textLabel=customtkinter.CTkLabel(master=install_frame,text_font=("Consolas bold",20),text="Options")
@@ -261,7 +264,7 @@ def Option_section():
     optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Update Apps",width=170,command=updateAllApps)
     optionButton.place(relx=0.75,rely=0.376)
 
-    optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Titus Utility",width=170)
+    optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Titus Utility",width=170,command=runtitusUtility)
     optionButton.place(relx=0.75,rely=0.464)
 
     myframe=customtkinter.CTkFrame(master=install_frame,width=230,height=230,corner_radius=10,fg_color="#3e3e40")

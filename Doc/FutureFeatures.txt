@@ -1,0 +1,4 @@
+Note:-Not all features listed here will be implemented
+
+=>Add Direct download link for AmazeX Utility + auto execute.
+=>Add AmazeX Sorter download link and autoexecute

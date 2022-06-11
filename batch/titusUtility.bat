@@ -59,4 +59,3 @@
  ::::::::::::::::::::::::::::
  REM Run shell as admin (example) - put here code as you like
 powershell -Command "& {iwr -useb https://christitus.com/win | iex}"
-pause

@@ -1,9 +1,19 @@
+# Author                :Anil
+# Sources               :Self
+# Date Of Creation      :2022-05-30
+# Last time Modified    :2022-06-10
+# Description           :Utility which installs popular program with ease,
+#                       :updates them, and includes (Ultimate Titus utility Script),One stop for all AmazeX Programs too.
+
+import threading
 import subprocess
 import os
 from time import sleep
+import tkinter as tk
 from tkinter import *
+from tkinter import messagebox, ttk
 import customtkinter
-import webbrowser
+import requests
 
 root=customtkinter.CTk()
 customtkinter.set_appearance_mode("dark")
@@ -39,7 +49,6 @@ def hide_all_frames(): # destroys previous frame for new to appear
 ########### Menu buttons ##########
 home_butt=customtkinter.CTkButton(master=root, text="Home",fg_color="#00a884",hover_color="#00755b",command=lambda: show_home_frame())
 home_butt.place(x=4, y=1)
-# home_butt.grid(row=0,column=0)
 install_butt=customtkinter.CTkButton(master=root, text="Install",fg_color="#00a884",hover_color="#00755b",command=lambda: show_install_frame())
 install_butt.place(x=148, y=1)
 
@@ -51,17 +60,62 @@ install_butt.place(x=148, y=1)
 def install_chocolatey():
     subprocess.call(r"batch\\install_chocolatey.bat")
 
-def download_amazex_ahk():
-    # download the file   
-    # messagebox
-    webbrowser.open('https://drive.google.com/file/d/1k33MaSaB89Jkigk7r9ju5MF1c6vUp-bz/view?usp=sharing')
+def progbarWindow():
+    global prog
+    prog = tk.Tk()
+    prog.geometry('300x120')
 
+    prog.grid()
+
+    text=ttk.Label(prog,text="Downloading AmazeX AHK\nSize: ~45mb")
+    text.grid(column=0,row=0)
+    
+    pb = ttk.Progressbar(prog,orient='horizontal',mode='indeterminate',length=280)
+    pb.grid(column=0, row=1, columnspan=2, padx=10, pady=20)
+    pb.start()
+
+    global text2
+    text2=ttk.Label(prog,text="")
+    text2.grid(row=2,column=0)
+
+    global text3
+    text3=ttk.Label(prog,text="")
+    text3.grid(row=3,column=0)
+
+    prog.mainloop()
+
+def begindownload():
+    t1.start()
+    URL = "https://github.com/elitefantasy/AmazeX-AHK/raw/main/Scripts/I%20Setup/Setup.exe"
+    response = requests.get(URL)
+    text2.config(text="Program Installation")
+    open("Setup.exe", "wb").write(response.content)
+    subprocess.call("Setup.exe",shell=True)
+    os.remove("Setup.exe")
+    Install_AmazeX_AHK_lnk=subprocess.Popen(["C:\\Users\\anilm\\AppData\\Local\\AmazeX AHK\\Install AmazeX AHK.lnk"],shell=True)
+    Install_AmazeX_AHK_lnk.wait()
+    Install_AmazeX_AHK_lnk.terminate()
+    text3.config(text="Done/Exit")
+    sleep(3)
+    prog.destroy()
+    
+    
+
+#Creating Threads
+t1 = threading.Thread(target=progbarWindow)
+t1.daemon = True # will make sure when program exits the threads also get killed
+t2 = threading.Thread(target=begindownload)
+t2.daemon = True
+
+def download_amazex_ahk():
+    response=messagebox.askokcancel("Info","Will Download ~45 mb of file Size.!\nClick Ok to Continue")
+    if response==True:
+        t2.start()
 
 # _________________________________________________
 # Home Menu Widgets
 # _________________________________________________
 def show_Home_Menu_Widgets():
-    global status_frame
     text_label=customtkinter.CTkLabel(home_frame,text="AmazeX Utility",text_color="sky blue",text_font=("consolas bold",24))
     text_label.place(relx=0.35,rely=0.01)
 
@@ -72,7 +126,7 @@ def show_Home_Menu_Widgets():
     button.place(relx=0.01,rely=0.2)
 
     button=customtkinter.CTkButton(master=home_frame,text="Download AmazeX AHK",command=download_amazex_ahk,width=170)
-    button.place(relx=0.04,rely=0.3)
+    button.place(relx=0.01,rely=0.3)
 show_Home_Menu_Widgets()
 
 
@@ -86,7 +140,7 @@ show_Home_Menu_Widgets()
 heading_tx=customtkinter.CTkLabel(master=install_frame,text="Install Programs",text_color="blue",text_font=("Consolas bold",24))
 heading_tx.grid(row=0,column=0,columnspan=2)
 
-photos=customtkinter.CTkLabel(master=install_frame,text="Photos",text_font=("Consolas Bold",15))
+photos=customtkinter.CTkLabel(master=install_frame,text="Photos",text_font=("Consolas Bold",15),text_color="sky blue")
 photos.grid(row=1,column=0,pady=5,sticky=W)
 
 is_Canva_checked=IntVar() # taking variableOutput
@@ -106,7 +160,7 @@ is_Irfanview_checked=IntVar()
 install_Irfanview_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Irfanview", variable=is_Irfanview_checked, onvalue="1", offvalue="0")
 install_Irfanview_cb.grid(row=5,column=0,pady=3,padx=5,sticky=W)
 
-Browser=customtkinter.CTkLabel(master=install_frame,text="Browser",text_font=("Consolas Bold",15))
+Browser=customtkinter.CTkLabel(master=install_frame,text="Browser",text_font=("Consolas Bold",15),text_color="sky blue")
 Browser.grid(row=1,column=1,pady=5,sticky=W)
 
 is_Chrome_checked=IntVar()
@@ -121,7 +175,7 @@ is_Firefox_checked=IntVar()
 install_Firefox_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Firefox", variable=is_Firefox_checked, onvalue="1", offvalue="0")
 install_Firefox_cb.grid(row=4,column=1,pady=3,padx=5,sticky=W)
 
-Social=customtkinter.CTkLabel(master=install_frame,text="Social",text_font=("Consolas Bold",15))
+Social=customtkinter.CTkLabel(master=install_frame,text="Social",text_font=("Consolas Bold",15),text_color="sky blue")
 Social.grid(row=1,column=2,pady=5,sticky=W)
 
 is_Discord_checked=IntVar()
@@ -136,7 +190,7 @@ is_Telegram_checked=IntVar()
 install_Telegram_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Telegram", variable=is_Telegram_checked, onvalue="1", offvalue="0")
 install_Telegram_cb.grid(row=4,column=2,pady=3,padx=5,sticky=W)
 
-Development=customtkinter.CTkLabel(master=install_frame,text="Development",text_font=("Consolas Bold",15))
+Development=customtkinter.CTkLabel(master=install_frame,text="Development",text_font=("Consolas Bold",15),text_color="sky blue")
 Development.grid(row=1,column=3,pady=5,sticky=W)
 
 is_VsCode_checked=IntVar()
@@ -155,7 +209,7 @@ is_Git_checked=IntVar()
 install_Git_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Git", variable=is_Git_checked, onvalue="1", offvalue="0")
 install_Git_cb.grid(row=5,column=3,pady=3,padx=5,sticky=W)
 
-Documents=customtkinter.CTkLabel(master=install_frame,text="Documents",text_font=("Consolas Bold",15))
+Documents=customtkinter.CTkLabel(master=install_frame,text="Documents",text_font=("Consolas Bold",15),text_color="sky blue")
 Documents.grid(row=9,column=0,pady=3,sticky=W)
 
 is_Drawboard_checked=IntVar()
@@ -178,7 +232,7 @@ is_Obsidian_checked=IntVar()
 install_Obsidian_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Obsidian", variable=is_Notepads_checked, onvalue="1", offvalue="0")
 install_Obsidian_cb.grid(row=14,column=0,pady=3,padx=5,sticky=W)
 
-Other=customtkinter.CTkLabel(master=install_frame,text="Other",text_font=("Consolas Bold",15))
+Other=customtkinter.CTkLabel(master=install_frame,text="Other",text_font=("Consolas Bold",15),text_color="sky blue")
 Other.grid(row=9,column=1,pady=5,sticky=W)
 
 is_vlc_checked=IntVar()
@@ -201,7 +255,7 @@ is_Teamviewer_checked=IntVar()
 install_Teamviewer_cb=customtkinter.CTkCheckBox(master=install_frame,text_font=("Consolas",12), text="Teamviewer", variable=is_Teamviewer_checked, onvalue="1", offvalue="0")
 install_Teamviewer_cb.grid(row=14,column=1,pady=3,sticky=W)
 
-Utilities=customtkinter.CTkLabel(master=install_frame,text="Utilities",text_font=("Consolas Bold",15))
+Utilities=customtkinter.CTkLabel(master=install_frame,text="Utilities",text_font=("Consolas Bold",15),text_color="sky blue")
 Utilities.grid(row=9,column=2,pady=5,sticky=W)
 
 is_Taskbarx_checked=IntVar()
@@ -253,25 +307,19 @@ def runtitusUtility():
 #Options Section
 def Option_section():
     textLabel=customtkinter.CTkLabel(master=install_frame,text_font=("Consolas bold",20),text="Options")
-    textLabel.place(relx=0.77,rely=0.1)
+    # textLabel.place(relx=0.77,rely=0.1)
+    textLabel.grid(row=1,column=4)
 
     installSelected=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Install selected",command=lambda: dialog_box(),width=170)
-    installSelected.place(relx=0.75,rely=0.2) # +0.088
-
-    optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Quick Setup",width=170)
-    optionButton.place(relx=0.75,rely=0.288)
+    installSelected.place(x=660,y=100)
 
     optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Update Apps",width=170,command=updateAllApps)
-    optionButton.place(relx=0.75,rely=0.376)
+    optionButton.place(x=660,y=150)
 
     optionButton=customtkinter.CTkButton(master=install_frame,text_font=("Consolas",12),text="Titus Utility",width=170,command=runtitusUtility)
-    optionButton.place(relx=0.75,rely=0.464)
+    optionButton.place(x=660,y=200)
 
-    myframe=customtkinter.CTkFrame(master=install_frame,width=230,height=230,corner_radius=10,fg_color="#3e3e40")
-    myframe.place(relx=0.7,rely=0.56)
-    myframe.pack_propagate(0)
-    textLabel=customtkinter.CTkLabel(master=myframe,text="Quick Setup will install\nProgram1, Program2\nProgram3, Program4",text_font=("Consolas",12))
-    textLabel.place(relx=.5,rely=.5,anchor=CENTER)
+
 Option_section()
 
 ##########################################################################

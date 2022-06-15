@@ -1,4 +1,4 @@
 Note:-Not all features listed here will be implemented
 
-=>Add Direct download link for AmazeX Utility + auto execute.
+=>Add Uninstallation feature of windows specific apps
 =>Add AmazeX Sorter download link and autoexecute

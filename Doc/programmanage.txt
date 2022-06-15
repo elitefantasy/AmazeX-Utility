@@ -1,43 +1,43 @@
 @New Apps for installtion
 	Photo
-		Canva
-		ShareX
-		Greenshot
-		Irfanview
+		Canva✔
+		ShareX✔
+		Greenshot✔
+		Irfanview✔
 	Browser
-		Chrome 
-		Brave
-		Firefox
-		FDM
-		Megasync
+		Chrome ✔
+		Brave✔
+		Firefox✔
+		FDM✔
+		Megasync✔
 	Social
-		Discord
-		Whatsapp
-		Telegram
+		Discord✔
+		Whatsapp✔
+		Telegram✔
 	Development
-		Vs Code
-		Sublime text
-		Github Desktop
+		Vs Code✔
+		Sublime text✔
+		Github Desktop✔
 	Document
-		Drawboard
-		Notepad++
-		Notepads
-		Obsidian
-		Xodo	
+		Drawboard✔
+		Notepad++✔
+		Notepads✔
+		Obsidian✔
+		Xodo	✔
 	Other
-		QtTabBar
-		Autohotkey
-		Vlc
-		Spotify		
-		Teamviewer
+		QtTabBar✔
+		Autohotkey✔
+		Vlc✔
+		Spotify✔	
+		Teamviewer✔
 	Utilities
-		TaskbarX
-		Ccleaner
-		7zip
-		Ventoy
-		Everything search
-		Powertoys
-		WinaeroTweakers
-		choco install io-unlocker
-		Revo uninstaller
-		Windows Terminal
+		TaskbarX✔
+		Ccleaner✔
+		7zip✔
+		Ventoy✔
+		Everything search✔
+		Powertoys✔
+		WinaeroTweakers✔
+		choco install io-unlocker✔
+		Revo uninstaller✔
+		Windows Terminal✔

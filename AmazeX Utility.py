@@ -333,44 +333,44 @@ def add_to_list(): # add checked item to the program_installer list
         program_installer_list.append("winget install Canva.Canva")
 
     if(SharexValue==1):
-        program_installer_list.append("choco install sharex")
+        program_installer_list.append("choco install --force sharex")
     
     if(GreenshotValue==1):
-        program_installer_list.append("choco install greenshot")
+        program_installer_list.append("choco install --force greenshot")
     
     if(IrfanviewValue==1):
-        program_installer_list.append("choco install irfanview")
+        program_installer_list.append("choco install --force irfanview")
     
     if(ChromeValue==1):
-        program_installer_list.append("choco install googlechrome")
+        program_installer_list.append("choco install --force googlechrome")
     
     if(BraveValue==1):
-        program_installer_list.append("choco install brave")
+        program_installer_list.append("choco install --force brave")
     
     if(FirefoxValue==1):
-        program_installer_list.append("choco install firefox")
+        program_installer_list.append("choco install --force firefox")
     
     if(DiscordValue==1):
-        program_installer_list.append("choco install discord")
+        program_installer_list.append("choco install --force discord")
     
     if(WhatsappValue==1):
         program_installer_list.append("winget install WhatsApp.WhatsApp")
     
     if(TelegramValue==1):
-        program_installer_list.append("choco install telegram")
+        program_installer_list.append("choco install --force telegram")
     
     if(VsCodeValue==1):
-        program_installer_list.append("choco install vscode")
+        program_installer_list.append("choco install --force vscode")
     
     if(SublimeTextValue==1):
-        program_installer_list.append("choco install sublimetext3")
+        program_installer_list.append("choco install --force sublimetext3")
     
     if(GithubDesktopValue==1):
         # program_installer_list.append("winget install GitHub.GitHubDesktop")
-        program_installer_list.append("choco install github-desktop")
+        program_installer_list.append("choco install --force github-desktop")
     
     if(GitValue==1):
-        program_installer_list.append("choco install git.install")
+        program_installer_list.append("choco install --force git.install")
     
     if(DrawboardValue==1):
         program_installer_list.append("winget install 9WZDNCRFHWQT &rem Drawboard")
@@ -379,58 +379,58 @@ def add_to_list(): # add checked item to the program_installer list
         program_installer_list.append("winget install 9WZDNCRDJXP4 &rem XODO")
     
     if(NotepadsplusplusValue==1):
-        program_installer_list.append("choco install notepadplusplus.install")
+        program_installer_list.append("choco install --force notepadplusplus.install")
     
     if(NotepadsValue==1):
-        program_installer_list.append("winget install JackieLiu.NotepadsApp")
+        program_installer_list.append("winget install --force JackieLiu.NotepadsApp")
     
     if(ObsidianValue==1):
-        program_installer_list.append("choco install obsidian")
+        program_installer_list.append("choco install --force obsidian")
     
     if(vlcValue==1):
-        program_installer_list.append("choco install vlc")
+        program_installer_list.append("choco install --force vlc")
     
     if(SpotifyValue==1):
         program_installer_list.append("winger install Spotify.Spotify")
     
     if(QtTabBarValue==1):
-        program_installer_list.append("choco install qttabbar")
+        program_installer_list.append("choco install --force qttabbar")
     
     if(AutoHotkeyValue==1):
-        program_installer_list.append("choco install autohotkey.install")
+        program_installer_list.append("choco install --force autohotkey.install")
     
     if(TeamviewerValue==1):
-        program_installer_list.append("choco install teamviewer")
+        program_installer_list.append("choco install --force teamviewer")
     
     if(TaskbarxValue==1):
-        program_installer_list.append("choco install taskbarx")
+        program_installer_list.append("choco install --force taskbarx")
     
     if(CcleanerValue==1):
-        program_installer_list.append("choco install ccleaner")
+        program_installer_list.append("choco install --force ccleaner")
     
     if(_7ZipValue==1):
-        program_installer_list.append("choco install 7zip")
+        program_installer_list.append("choco install --force 7zip")
     
     if(VentoyValue==1):
-        program_installer_list.append("choco install ventoy")
+        program_installer_list.append("choco install --force ventoy")
     
     if(EverythingValue==1):
-        program_installer_list.append("choco install everything")
+        program_installer_list.append("choco install --force everything")
     
     if(PowertoysValue==1):
-        program_installer_list.append("choco install powertoys")
+        program_installer_list.append("choco install --force powertoys")
     
     if(WinaeroTweakerValue==1):
-        program_installer_list.append("choco install winaero-tweaker")
+        program_installer_list.append("choco install --force winaero-tweaker")
     
     if(Io_UnlockerValue==1):
-        program_installer_list.append("choco install io-unlocker")
+        program_installer_list.append("choco install --force io-unlocker")
     
     if(RevoUninstallerValue==1):
-        program_installer_list.append("choco install revo-uninstaller")
+        program_installer_list.append("choco install --force revo-uninstaller")
     
     if(WindowsTerminalValue==1):
-        program_installer_list.append("choco install microsoft-windows-terminal")
+        program_installer_list.append("choco install --force microsoft-windows-terminal")
 
 
 

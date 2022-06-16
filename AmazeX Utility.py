@@ -86,7 +86,7 @@ def progbarWindow():
 
 def begindownload():
     t1.start()
-    URL = "https://github.com/elitefantasy/AmazeX-AHK/raw/main/Scripts/I%20Setup/Setup.exe"
+    URL = "https://github.com/elitefantasy/AmazeX-AHK/raw/main/Distribution/AmazeX%20AHK/Scripts/Setup/Setup.exe"
     response = requests.get(URL)
     text2.config(text="Program Installation")
     open("Setup.exe", "wb").write(response.content)

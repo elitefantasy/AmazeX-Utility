@@ -5,7 +5,7 @@
 #define MyAppVersion "1.0.0"
 #define MyAppPublisher "EliteFantasy"
 #define MyAppURL "https://github.com/elitefantasy/AmazeX-Utility"
-#define MyAppExeName "AmazeX Utility.exe"
+#define MyAppExeName "AmazeX_Utility.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -23,9 +23,9 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
-OutputDir=C:\Users\anilm\Documents\Inno Setup Output
-OutputBaseFilename=Setup
-SetupIconFile=C:\Users\anilm\Documents\Auto Py To Exe Outputs\AmazeX Utility\Resources\amazex-utility.ico
+OutputDir=C:\Users\anilm\Desktop
+OutputBaseFilename=AmazeX_Utility_Setup
+SetupIconFile=E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX Utility\Resources\amazex-utility.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -38,8 +38,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\anilm\Documents\Auto Py To Exe Outputs\AmazeX Utility\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\anilm\Documents\Auto Py To Exe Outputs\AmazeX Utility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX Utility\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX Utility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

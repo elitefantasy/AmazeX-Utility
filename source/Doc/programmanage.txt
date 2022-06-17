@@ -1,0 +1,44 @@
+@New Apps for installtion
+	Photo
+		Canva✔
+		ShareX✔
+		Greenshot✔
+		Irfanview✔
+	Browser
+		Chrome ✔
+		Brave✔
+		Firefox✔
+		FDM✔
+		Megasync✔
+	Social
+		Discord✔
+		Whatsapp✔
+		Telegram✔
+	Development
+		Vs Code✔
+		Sublime text✔
+		Github Desktop✔
+	Document
+		Drawboard✔
+		Notepad++✔
+		Notepads✔
+		Obsidian✔
+		Xodo	✔
+	Other
+		QtTabBar✔
+		Autohotkey✔
+		Vlc✔
+		Spotify✔	
+		Teamviewer✔
+		Virtualbox🔴
+	Utilities
+		TaskbarX✔
+		Ccleaner✔
+		7zip✔
+		Ventoy✔
+		Everything search✔
+		Powertoys✔
+		WinaeroTweakers✔
+		choco install io-unlocker✔
+		Revo uninstaller✔
+		Windows Terminal✔

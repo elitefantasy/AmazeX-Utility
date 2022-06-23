@@ -1,1 +1,1 @@
-choco install autohotkey.install
+winget install Duplicati.Duplicati

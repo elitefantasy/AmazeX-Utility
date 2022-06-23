@@ -30,7 +30,7 @@
 		Vlc✔
 		Spotify✔	
 		Teamviewer✔
-		Virtualbox🔴
+		VmWare player✔
 	Utilities
 		TaskbarX✔
 		Ccleaner✔

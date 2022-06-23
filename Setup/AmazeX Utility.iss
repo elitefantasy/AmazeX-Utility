@@ -25,7 +25,7 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 OutputDir=C:\Users\anilm\Desktop
 OutputBaseFilename=AmazeX_Utility_Setup
-SetupIconFile=E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX_Utility\Resources\amazex-utility.ico
+SetupIconFile=E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\Resources\amazex-utility.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -38,8 +38,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX_Utility\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\1 Megasync\my scripts\Github\AmazeX-Utility\.output\AmazeX_Utility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

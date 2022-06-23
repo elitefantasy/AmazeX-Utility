@@ -1,4 +1,8 @@
-Version 1.0.1 (non released)
+Version 1.1.1 (current)
+[New]
+    added next and previous button for more apps to include
+    added vmware in list of downloads
+    added Duplicati in list of downloads
 [fixes]
     fixed windows terminal not downloading properly
 [changes]    

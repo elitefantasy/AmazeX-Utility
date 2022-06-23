@@ -1,0 +1,7 @@
+Version 1.0.1 (non released)
+[fixes]
+    fixed windows terminal not downloading properly
+[changes]    
+    Changed akm program setups to download into user Desktop Folder rather running setup automatically
+-----------------------------------------------------
+Version 1.0.0

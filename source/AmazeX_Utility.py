@@ -1,7 +1,7 @@
 # Author                :Anil
 # Sources               :Self
 # Date Of Creation      :2022-05-30
-# Last time Modified    :2022-06-10
+# Last time Modified    :2022-06-23
 # Description           :Utility which installs popular program with ease,
 #                       :updates them, and includes (Ultimate Titus utility Script),One stop for all AmazeX Programs too.
 
@@ -30,6 +30,7 @@ os.chdir(cwd_of_utility)
 
 ##### Variables ####
 username=os.getlogin()
+DesktopPath=f"C:\\Users\\{username}\\Desktop"
 fileUrlAHK="https://github.com/elitefantasy/AmazeX-AHK/raw/main/Distribution/AmazeX%20AHK/Scripts/Setup/Setup.exe"
 fileUrl_AkmDownloadSorter="https://github.com/elitefantasy/AKM-DownloadSorter/raw/main/Dist/AkmDowloadSorter_Setup.exe"
 
@@ -109,13 +110,7 @@ def downAHK():
 
         def download_file():
             response = requests.get(fileUrlAHK)
-            text2.config(text="Program Installation")
-            open("Setup.exe", "wb").write(response.content)
-            subprocess.call("Setup.exe",shell=True)
-            os.remove("Setup.exe")
-            Install_AmazeX_AHK_lnk=subprocess.Popen([f"C:\\Users\\{username}\\AppData\\Local\\AmazeX AHK\\Install AmazeX AHK.lnk"],shell=True)
-            Install_AmazeX_AHK_lnk.wait()
-            Install_AmazeX_AHK_lnk.terminate()
+            open(DesktopPath+"\\AmazeX AHK Setup.exe", "wb").write(response.content)
             text3.config(text="Done/Exit")
             sleep(3)
             prog.destroy()
@@ -133,10 +128,8 @@ def downAkmSorter():
 
         def download_file():
             response = requests.get(fileUrl_AkmDownloadSorter)
-            text2.config(text="Program Installation")
-            open("Setup.exe", "wb").write(response.content)
-            subprocess.call("Setup.exe",shell=True)
-            os.remove("Setup.exe")
+            
+            open(DesktopPath+"\\AkmSorter.exe", "wb").write(response.content)
             text3.config(text="Done/Exit")
             sleep(3)
             prog.destroy()
@@ -463,7 +456,8 @@ def add_to_list(): # add checked item to the program_installer list
         program_installer_list.append("choco install --force revo-uninstaller")
     
     if(WindowsTerminalValue==1):
-        program_installer_list.append("choco install --force microsoft-windows-terminal")
+        # program_installer_list.append("choco install --force microsoft-windows-terminal")
+        program_installer_list.append("winget install Microsoft.WindowsTerminal.Preview")
 
 
 

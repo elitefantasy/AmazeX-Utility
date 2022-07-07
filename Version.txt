@@ -1,10 +1,12 @@
 Version 1.2.2 (current)
+[new]
+    added check for update button for self downloading amazex utility
+    Tabbar has been added
 [changes]
 	recreated with new Gui Library (PyQt)
-	Tabbar has been added
 	next,prev page has been removed
 [fixes]
-	fixed memory leaks	
+	fixed memory leaks
 -----------------------------------------------------
 Version 1.1.1
 [New]

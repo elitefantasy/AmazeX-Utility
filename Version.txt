@@ -1,3 +1,7 @@
+Version 1.2.2.1 (current)
+[new]
+    added check for update button for self downloading amazex utility
+
 Version 1.2.2 (current)
 [changes]
 	recreated with new Gui Library (PyQt)

@@ -1,3 +1,0 @@
-Note:-Not all features listed here will be implemented
-
-=>Add Uninstallation feature of windows specific apps

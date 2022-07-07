@@ -1,4 +1,12 @@
-Version 1.1.1 (current)
+Version 1.2.2 (current)
+[changes]
+	recreated with new Gui Library (PyQt)
+	Tabbar has been added
+	next,prev page has been removed
+[fixes]
+	fixed memory leaks	
+-----------------------------------------------------
+Version 1.1.1
 [New]
     added next and previous button for more apps to include
     added vmware in list of downloads

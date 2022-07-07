@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AmazeX Utility"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.2.2"
 #define MyAppPublisher "EliteFantasy"
 #define MyAppURL "https://github.com/elitefantasy/AmazeX-Utility"
 #define MyAppExeName "AmazeX_Utility.exe"
@@ -25,7 +25,7 @@ DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 OutputDir=C:\Users\anilm\Desktop
 OutputBaseFilename=AmazeX_Utility_Setup
-SetupIconFile=E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\Resources\amazex-utility.ico
+SetupIconFile=E:\1 Megasync\MegProgram\Learning Python\pyqt Projects\AmazeX Utility\icons\amazex-utility.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -38,8 +38,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\3 Programing\Github\AmazeX-Utility\source\dist\AmazeX_Utility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\1 Megasync\MegProgram\Learning Python\pyqt Projects\AmazeX Utility\dist\mainwindow_UI\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\1 Megasync\MegProgram\Learning Python\pyqt Projects\AmazeX Utility\dist\mainwindow_UI\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

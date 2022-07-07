@@ -138,9 +138,9 @@ color:white;</string>
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-9</y>
-             <width>863</width>
-             <height>538</height>
+             <y>0</y>
+             <width>880</width>
+             <height>529</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -235,7 +235,7 @@ color:white;</string>
               <property name="sizeHint" stdset="0">
                <size>
                 <width>20</width>
-                <height>240</height>
+                <height>200</height>
                </size>
               </property>
              </spacer>
@@ -375,7 +375,7 @@ color:white;
               </item>
              </layout>
             </item>
-            <item row="10" column="0" colspan="2">
+            <item row="11" column="0" colspan="2">
              <layout class="QHBoxLayout" name="horizontalLayout">
               <property name="spacing">
                <number>0</number>
@@ -474,6 +474,19 @@ color:white;
                </widget>
               </item>
              </layout>
+            </item>
+            <item row="10" column="0" colspan="2">
+             <widget class="QProgressBar" name="progressBar">
+              <property name="value">
+               <number>0</number>
+              </property>
+              <property name="textVisible">
+               <bool>false</bool>
+              </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>

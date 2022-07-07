@@ -1,8 +1,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import subprocess,os,urllib.request,requests,threading
-from progbar import Ui_Form
-from time import sleep
+import subprocess,os,urllib.request
 
 # stylesheet
 Stylesheet=("QCheckBox{spacing:20px;}"
@@ -27,7 +25,6 @@ AmazeX_Utility_Setup_url="https://github.com/elitefantasy/AmazeX-Utility/raw/mai
 program_installer_bat_path=os.path.join(cwd_of_utility,"batch\\program_installer.bat")
 versionUrl="https://raw.githubusercontent.com/elitefantasy/AmazeX-Utility/main/Version.txt"
 
-
 class Ui_MainWindow(QtWidgets.QWidget):
     def programStartup(self): # run at program startup
         versionSource=open('Version.txt','r')
@@ -50,55 +47,34 @@ class Ui_MainWindow(QtWidgets.QWidget):
         # reupdateSource = urllib.request.urlopen(versionUrl)
         updateversion=urllib.request.urlopen(versionUrl).readline().decode('utf-8').replace("Version","").replace("(current)","")
         
-        for i in range(0,20):
-            if updateContents[i] != versionContents[i]:
-                update =True
-                # checking file size of setup
-                file=urllib.request.urlopen(AmazeX_Utility_Setup_url)
-                fileSizeByte=int(file.length)
-                fileSizeMb=str(int(fileSizeByte/1048576))
-                
-                # showing the message box
-                msg=QtWidgets.QMessageBox()
-                msg.setIcon(QtWidgets.QMessageBox.Information)
-                msg.setWindowTitle("Check App Update")
-                msg.setText("New Version is Available: "+updateversion+"\nDo You want To Download(file size: "+fileSizeMb+" ) The Update")
-                print("Updates are available")
-                msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
-        
-                
-                retval=msg.exec_()
-                if retval==1024:
-                    self.progbar_window=QtWidgets.QWidget()
-                    self.ui=Ui_Form()
-                    self.ui.setupUi(self.progbar_window)
-                    self.progbar_window.setWindowTitle("Download AmazeX Utility")
-                    self.ui.label.setText("Downloading AmazeX Utility.....\nDepends on internet speed")
-                    self.progbar_window.show()
-                    print("Starting download of Amazex Utility")
-                    
-                    def download_file():
-                        response = requests.get(AmazeX_Utility_Setup_url)
-                        open(DesktopPath+"\\AmazeX_Utility_Setup.exe", "wb").write(response.content)
-                        # sleep(10)#just for testing purpose
-                        self.ui.label.setText("Done!, File Downloaded at Desktop")
-                        sleep(3)
-                        # Exit the progbar window
-                        self.progbar_window.close()
-                    # creating Thread
-                    threading_download_file=threading.Thread(target=download_file)
-                    threading_download_file.daemon=True
-                    threading_download_file.start()
-                
-                break
+        if updateContents != versionContents:
+            update =True
+            # checking file size of setup
+            file=urllib.request.urlopen(AmazeX_Utility_Setup_url)
+            fileSizeByte=int(file.length)
+            fileSizeMb=str(int(fileSizeByte/1048576))
             
-            if update == False:
-                msg=QtWidgets.QMessageBox()
-                msg.setIcon(QtWidgets.QMessageBox.Information)
-                msg.setWindowTitle("Check App Update")
-                msg.setText("You are already running latest version: "+updateversion)
-                msg.exec_()
-                break
+            # showing the message box
+            msg=QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setWindowTitle("Check App Update")
+            msg.setText("New Version is Available: "+updateversion+"\nDo You want To Download(file size: "+fileSizeMb+" ) The Update")
+            print("Updates are available")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+    
+            
+            retval=msg.exec_()
+            if retval==1024:
+                down_url =AmazeX_Utility_Setup_url
+                save_loc = f'C:/Users/{username}/Desktop/AmazeX_Utility_Setup.exe'
+                urllib.request.urlretrieve(down_url,save_loc, self.Handle_Progress)
+        
+        if update == False:
+            msg=QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setWindowTitle("Check App Update")
+            msg.setText("You are already running latest version: "+updateversion)
+            msg.exec_()
     
     def run_install_chocolatey(self):
         subprocess.call([r'batch\\install_chocolatey.bat'])
@@ -135,60 +111,36 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.msg.setText(f"Couldn't Fetch File")
             self.msg.exec_()
 
+    def Handle_Progress(self, blocknum, blocksize, totalsize):
+        ## calculate the progress
+        readed_data = blocknum * blocksize
+
+        if totalsize > 0:
+            download_percentage = int(readed_data * 100 / totalsize)
+            self.progressBar.setValue(download_percentage)
+            QtWidgets.QApplication.processEvents()
+
     def download_amazexAHK(self):
+        down_url =fileUrlAHK
+        save_loc = f'C:/Users/{username}/Desktop/AmazeX_AHK_Setup.exe'
         #calling showAskOkCancelWindow function
         self.asokcancel(url=fileUrlAHK,msgTitle="Download AmazeX AHK")
         
         # Showing progressbar and starting download
         if retval==1024: #if okay
-            #create and show progbar window
-            self.progbar_window=QtWidgets.QWidget() #creating instance of window
-            self.ui=Ui_Form() #calling class
-            self.ui.setupUi(self.progbar_window) #calling function,and assigining parent
-            self.progbar_window.setWindowTitle("Download AmazeX AHK")
-            self.ui.label.setText("Downloading AmazeX AHK.....\nDepends on internet speed")
-            self.progbar_window.show()
-            print("Starting download of AmazexAHK")
-            #starting download
-            def download_file():
-                response = requests.get(fileUrlAHK)
-                open(DesktopPath+"\\AmazeX AHK Setup.exe", "wb").write(response.content)
-                # sleep(10)#just for testing purpose
-                self.ui.label.setText("Done!, File Downloaded at Desktop")
-                sleep(3)
-                # Exit the progbar window
-                self.progbar_window.close()
-            # creating Thread
-            threading_download_file=threading.Thread(target=download_file)
-            threading_download_file.daemon=True
-            threading_download_file.start()
+            #update progressbar
+            urllib.request.urlretrieve(down_url,save_loc, self.Handle_Progress)
     
     def download_akmSorter(self):
+        down_url =fileUrl_AkmDownloadSorter
+        save_loc = f'C:/Users/{username}/Desktop/AKM_Sorter_Setup.exe'
         #calling showAskOkCancelWindow
         self.asokcancel(url=fileUrl_AkmDownloadSorter,msgTitle="Download AKM FileSorter")
         
         # Showing progressbar and starting download
         if retval==1024:
-            #create and show progbar window
-            self.progbar_window=QtWidgets.QWidget()
-            self.ui=Ui_Form()
-            self.ui.setupUi(self.progbar_window)
-            self.progbar_window.setWindowTitle("Download AmazeX AHK")
-            self.ui.label.setText("Downloading AKM FileSorter.....\nDepends on internet speed")
-            self.progbar_window.show()
-            print("Starting download of AKM FileSorter")
-            #starting download
-            def download_file():
-                response = requests.get(fileUrl_AkmDownloadSorter)
-                open(DesktopPath+"\\AKM File Sorter.exe", "wb").write(response.content)
-                # sleep(10)#just for testing purpose
-                self.ui.label.setText("Done!, File Downloaded at Desktop")
-                sleep(3)
-                self.progbar_window.close()
-            # Exit the progbar window
-            threading_download_file=threading.Thread(target=download_file)
-            threading_download_file.daemon=True
-            threading_download_file.start()
+            #update progressbar
+            urllib.request.urlretrieve(down_url,save_loc, self.Handle_Progress)
         
     
     def install_selected_apps(self):
@@ -429,7 +381,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.gridLayout_2.addWidget(self.label_2, 2, 0, 1, 2)
         spacerItem = QtWidgets.QSpacerItem(600, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 5, 1, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 240, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 200, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.gridLayout_2.addItem(spacerItem1, 9, 0, 1, 1)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
         self.verticalLayout_3.setContentsMargins(-1, 20, -1, -1)
@@ -515,6 +467,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.gridLayout_2.addLayout(self.verticalLayout_3, 4, 0, 3, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
+        self.horizontalLayout.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label_StatusBar = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -522,7 +476,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_StatusBar.sizePolicy().hasHeightForWidth())
         self.label_StatusBar.setSizePolicy(sizePolicy)
-        self.label_StatusBar.setMinimumSize(QtCore.QSize(150, 0))
+        self.label_StatusBar.setMinimumSize(QtCore.QSize(0, 1))
         self.label_StatusBar.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_StatusBar.setStyleSheet("QLabel{\n"
 "background: qlineargradient(x1:-1, y1:0, x2:3, y2:0,\n"
@@ -534,7 +488,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
 "}")
         self.label_StatusBar.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_StatusBar.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.label_StatusBar.setAlignment(QtCore.Qt.AlignVCenter|QtCore.Qt.AlignHCenter)
+        self.label_StatusBar.setAlignment(QtCore.Qt.AlignCenter)
         self.label_StatusBar.setObjectName("label_StatusBar")
         self.horizontalLayout.addWidget(self.label_StatusBar)
         self.check_for_update_btn = QtWidgets.QPushButton(self.scrollAreaWidgetContents,clicked=lambda:self.checkForUpdates())
@@ -564,7 +518,13 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.check_for_update_btn.setFlat(False)
         self.check_for_update_btn.setObjectName("check_for_update_btn")
         self.horizontalLayout.addWidget(self.check_for_update_btn)
-        self.gridLayout_2.addLayout(self.horizontalLayout, 10, 0, 1, 2)
+        self.gridLayout_2.addLayout(self.horizontalLayout, 11, 0, 1, 2)
+        self.progressBar = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setInvertedAppearance(False)
+        self.progressBar.setObjectName("progressBar")
+        self.gridLayout_2.addWidget(self.progressBar, 10, 0, 1, 2)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_2.addWidget(self.scrollArea)
         self.tabWidget.addTab(self.home_tab, "")

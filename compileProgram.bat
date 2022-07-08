@@ -10,7 +10,7 @@ echo cwd is %cwd%
 set scriptname="AmazeX_Utility"
 set scriptFullPath="%cwd%/AmazeX_Utility.py"
 set iconPath="%cwd%/icons/amazex-utility.ico"
-set file1path=--add-data "%cwd%/progbar.py;."
+@REM set file1path=--add-data "%cwd%/progbar.py;."
 set file2path=--add-data "%cwd%/Version.txt;."
 set fold1path=--add-data "%cwd%/icons;icons/"
 set fold2path=--add-data "%cwd%/batch;batch/"
@@ -26,7 +26,7 @@ echo y|rmdir test
 echo y|rmdir /s dist
 
 @REM example=> pyinstaller --noconfirm --onedir --windowed --icon %iconPath%  %file1path% %scriptFullPath%
-pyinstaller --noconfirm --onedir --windowed --icon %iconPath% %file1path% %file2path% %fold1path% %fold2path% %scriptFullPath%
+pyinstaller --noconfirm --onedir --windowed --icon %iconPath% %file2path% %fold1path% %fold2path% %scriptFullPath%
 
 del %scriptname%.spec
 echo y|rmdir /s build

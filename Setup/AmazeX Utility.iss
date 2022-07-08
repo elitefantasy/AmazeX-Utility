@@ -29,6 +29,7 @@ SetupIconFile=E:\3 Programing\Github\AmazeX-Utility\icons\amazex-utility.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+;dsiplays icon for uninstaller
 UninstallDisplayIcon={app}\{#MyAppExeName}
 
 [Languages]

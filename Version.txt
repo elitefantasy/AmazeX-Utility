@@ -1,9 +1,10 @@
-Version 1.2.2.1 (current)
+Version 1.2.2.2 (current)
 [new]
     added check for update button for self downloading amazex utility
     Tabbar has been added
     added prgoressbar which tracks downloading progress of setup exe(s)
     now chocolatey is allowd for global confirmation by default
+    Added Keepass in install list
 [changes]
 	recreated with new Gui Library (PyQt)
 	next,prev page has been removed

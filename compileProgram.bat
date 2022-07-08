@@ -21,15 +21,15 @@ echo fold2path is %fold2path%
 @REM ---------------------------------------------------------------
 
 del %scriptname%.spec
-rmdir /s build
-rmdir test
-rmdir /s dist
+echo y|rmdir /s build
+echo y|rmdir test
+echo y|rmdir /s dist
 
 @REM example=> pyinstaller --noconfirm --onedir --windowed --icon %iconPath%  %file1path% %scriptFullPath%
 pyinstaller --noconfirm --onedir --windowed --icon %iconPath% %file1path% %file2path% %fold1path% %fold2path% %scriptFullPath%
 
 del %scriptname%.spec
-rmdir /s build
+echo y|rmdir /s build
 pause
 
 

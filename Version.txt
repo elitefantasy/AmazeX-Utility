@@ -3,6 +3,7 @@ Version 1.2.2.1 (current)
     added check for update button for self downloading amazex utility
     Tabbar has been added
     added prgoressbar which tracks downloading progress of setup exe(s)
+    now chocolatey is allowd for global confirmation by default
 [changes]
 	recreated with new Gui Library (PyQt)
 	next,prev page has been removed

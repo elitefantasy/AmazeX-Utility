@@ -60,5 +60,6 @@
 cd /D "%~dp0"
 echo thanks for using utility, will be exit in 4 seconds.....
 echo helloworld
+choco feature enable -n=allowGlobalConfirmation
 call program_installer.bat
 pause

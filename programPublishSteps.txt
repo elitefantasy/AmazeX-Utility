@@ -1,3 +1,0 @@
-update Version in textfile
-create setup.exe file
-push to github

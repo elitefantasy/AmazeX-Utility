@@ -36,12 +36,12 @@ class Ui_MainWindow(QtWidgets.QWidget):
     def checkForUpdates(self):
         update=False
         versionSource=open('Version.txt','r')
-        versionContents = versionSource.read()
+        versionContents = versionSource.readline()
         print("version content is: "+versionContents)
         
         #gets newest version(to compare files)
         updateSource = urllib.request.urlopen(versionUrl)
-        updateContents = updateSource.read().decode('utf-8')
+        updateContents = updateSource.readline().decode('utf-8')
         print("update content are: "+updateContents)
         #rechecking update version (to update labels n stuff)
         # reupdateSource = urllib.request.urlopen(versionUrl)

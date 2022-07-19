@@ -1,0 +1,31 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/16x16/download16x16.png</file>
+    <file>icons/16x16/hourglass.png</file>
+    <file>icons/16x16/trash-free-icon-font.png</file>
+    <file>icons/16x16/home16x16.png</file>
+    <file>icons/16x16/settings16x16.png</file>
+    <file>icons/amazex-utility.ico</file>
+    <file>icons/menu-burger.png</file>
+    <file>icons/microsoft/cortana.png</file>
+    <file>icons/microsoft/get help32x32.png</file>
+    <file>icons/microsoft/maps32x32.png</file>
+    <file>icons/microsoft/microsoft edge.png</file>
+    <file>icons/microsoft/people32x32.png</file>
+    <file>icons/microsoft/phone link32x32x.png</file>
+    <file>icons/microsoft/xbox gamebar32x32x.png</file>
+    <file>icons/amazex-utility.png</file>
+    <file>icons/book.png</file>
+    <file>icons/download.png</file>
+    <file>icons/github.png</file>
+    <file>icons/home.png</file>
+    <file>icons/info.png</file>
+    <file>icons/settings1.png</file>
+    <file>icons/checkbox-blue-dark/check.png</file>
+    <file>icons/checkbox-blue-dark/check-mark(1).png</file>
+    <file>icons/checkbox-blue-dark/check-mark.png</file>
+    <file>icons/checkbox-blue-dark/check-mark-hover.png</file>
+    <file>icons/checkbox-blue-dark/uncheckmark.png</file>
+    <file>icons/checkbox-blue-dark/uncheckmark-hover.png</file>
+  </qresource>
+</RCC>

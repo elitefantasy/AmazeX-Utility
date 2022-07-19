@@ -1,10 +1,24 @@
-Version 1.2.2.2 (current)
+Version 1.3.0 (current)
+[new]
+    new user interface
+    new side menu
+    coming soon uninstall page added
+    coming soon setting page added
+[changes]
+    tabs removed
+    status bar relocated
+    added title animation
+[fixes]
+    few bug fixes
+    more stability
+Version 1.2.2.2
 [new]
     added check for update button for self downloading amazex utility
     Tabbar has been added
     added prgoressbar which tracks downloading progress of setup exe(s)
     now chocolatey is allowd for global confirmation by default
     Added Keepass in install list
+    Added title animation
 [changes]
 	recreated with new Gui Library (PyQt)
 	next,prev page has been removed
